@@ -11,121 +11,119 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-class MultiSeriesTest {
+public class MultiSeriesTest {
 
     @Test
-    void readTSV() {
+    public void readTSV() {
     }
 
     @Test
-    void of() {
-        double []xs = {1,2,3,4,5,6,7,8,9};
-        double[][] ys={{1,1,1,1,1,1,1,1,1},
-                {2,2,2,2,2,2,2,2,2},
-                {3,3,3,3,3,3,3,3,3},
-                {4,4,4,4,4,4,4,4,4},
-                {5,5,5,5,5,5,5,5,5}};
-        MultiSeries ms = MultiSeries.of(xs,ys);
+    public void of() {
+        double[] xs = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+        double[][] ys = {{1, 1, 1, 1, 1, 1, 1, 1, 1},
+                {2, 2, 2, 2, 2, 2, 2, 2, 2},
+                {3, 3, 3, 3, 3, 3, 3, 3, 3},
+                {4, 4, 4, 4, 4, 4, 4, 4, 4},
+                {5, 5, 5, 5, 5, 5, 5, 5, 5}};
+        MultiSeries ms = MultiSeries.of(xs, ys);
         try {
-            byte [] bytes = ms.storeToByteArray();
+            byte[] bytes = ms.storeToByteArray();
             MultiSeries ms2 = MultiSeries.of(bytes);
             TimeSeries s2 = ms2.getSeries(0);
-            Assert.assertArrayEquals(s2.getValues(),ys[0],0.001);
-        }
-        catch (IOException e){
+            Assert.assertArrayEquals(s2.getValues(), ys[0], 0.001);
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
     }
 
     @Test
-    void of1() {
-        double []xs = {1,2,3,4,5,6,7,8,9};
-        double[][] ys={{1,1,1,1,1,1,1,1,1},
-                {2,2,2,2,2,2,2,2,2},
-                {3,3,3,3,3,3,3,3,3},
-                {4,4,4,4,4,4,4,4,4},
-                {5,5,5,5,5,5,5,5,5}};
-        MultiSeries ms = MultiSeries.of(xs,ys);
+    public void of1() {
+        double[] xs = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+        double[][] ys = {{1, 1, 1, 1, 1, 1, 1, 1, 1},
+                {2, 2, 2, 2, 2, 2, 2, 2, 2},
+                {3, 3, 3, 3, 3, 3, 3, 3, 3},
+                {4, 4, 4, 4, 4, 4, 4, 4, 4},
+                {5, 5, 5, 5, 5, 5, 5, 5, 5}};
+        MultiSeries ms = MultiSeries.of(xs, ys);
         try {
-            FileOutputStream f = new FileOutputStream(Config.getTestOutputDirectory()+ File.separator+"test.series");
+            FileOutputStream f = new FileOutputStream(Config.getTestOutputDirectory() + File.separator + "test.series");
             ms.write(f);
             f.close();
-            FileInputStream f2= new FileInputStream(Config.getTestOutputDirectory()+ File.separator+"test.series");
+            FileInputStream f2 = new FileInputStream(Config.getTestOutputDirectory() + File.separator + "test.series");
             MultiSeries ms2 = MultiSeries.of(f2);
             TimeSeries s2 = ms2.getSeries(0);
-            Assert.assertArrayEquals(s2.getValues(),ys[0],0.001);
-        }
-        catch (IOException e){
+            Assert.assertArrayEquals(s2.getValues(), ys[0], 0.001);
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     @Test
-    void of2() {
+    public void of2() {
     }
 
     @Test
-    void of3() {
+    public void of3() {
     }
 
     @Test
-    void of4() {
+    public void of4() {
     }
 
     @Test
-    void of5() {
+    public void of5() {
     }
 
     @Test
-    void of6() {
+    public void of6() {
     }
 
     @Test
-    void of7() {
+    public void of7() {
     }
 
     @Test
-    void of8() {
+    public void of8() {
     }
 
     @Test
-    void of9() {
+    public void of9() {
     }
 
     @Test
-    void length() {
+    public void length() {
     }
 
     @Test
-    void getSeries() {
+    public void getSeries() {
     }
 
     @Test
-    void count() {
+    public void count() {
     }
 
     @Test
-    void getLabel() {
+    public void getLabel() {
     }
 
     @Test
-    void getLabels() {
+    public void getLabels() {
     }
 
     @Test
-    void load() {
+    public void load() {
     }
 
     @Test
-    void store() {
+    public void store() {
     }
 
     @Test
-    void toTrainSet() {
+    public void toTrainSet() {
     }
 
     @Test
-    void toTestSet() {
+    public void toTestSet() {
     }
 }
